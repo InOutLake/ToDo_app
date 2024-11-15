@@ -1,0 +1,30 @@
+.task-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-column {
+    width: 30%;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.task-cards {
+    padding: 20px;
+}
+
+.task-card {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 20px;
+    cursor: move;
+}
+
+.task-card:hover {
+    background-color: #f7f7f7;
+}
