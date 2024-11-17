@@ -1,5 +1,6 @@
-from fastapi import FastAPI, Depends, Response
+from fastapi import FastAPI, Depends, Request
 from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from app.database import db as database
 from app.schemas import Task
@@ -8,21 +9,13 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
+templates = Jinja2Templates(directory="app/templates")
+
 
 @app.get("/")
-def read_index():
-    return Response(open("app/static/index.html").read(), media_type="text/html")
-
-
-@app.get("/styles.css")
-def get_styles():
-    return Response(open("app/static/index.css").read(), media_type="text/css")
-
-
-@app.get("/index.js")
-def get_index_js():
-    return Response(
-        open("app/static/index.js").read(), media_type="application/javascript"
+async def homepage(request: Request):
+    return templates.TemplateResponse(
+        "index.html", {"request": request}, media_type="text/html"
     )
 
 

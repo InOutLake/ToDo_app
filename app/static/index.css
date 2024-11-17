@@ -1,30 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 3vw;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
 .task-columns {
     display: flex;
     justify-content: space-between;
 }
 
 .task-column {
-    width: 30%;
+    width: 30cqw;
     background-color: #f7f7f7;
-    padding: 20px;
+    padding: 2%;
     border: 1px solid #ddd;
     border-radius: 10px;
-    margin: 20px;
+    margin: 1cqw;
+}
+
+.task-column h2 {
+    font-size: 2.5cqw;
+    margin-top: 1%;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 3cqh;
 }
 
 .task-cards {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .task-card {
     background-color: #fff;
-    padding: 20px;
+    padding: 1vw;
     border: 1px solid #ddd;
     border-radius: 10px;
-    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: move;
+    margin-bottom: 2cqh;
+}
+
+.task-card h3 {
+    font-size: 1.5vw;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #333;
+}
+
+.task-card.chosen input {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    font-family: Arial, sans-serif;
+    color: #333;
 }
 
 .task-card:hover {
     background-color: #f7f7f7;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 5vw;
+    }
+
+    .task-column h2 {
+        font-size: 4vw;
+    }
+
+    .task-card h3 {
+        font-size: 3vw;
+    }
 }
