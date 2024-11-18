@@ -128,5 +128,43 @@ async function dbclickHandler(ev) {
 
 // --- Create event ---
 async function createTask() {
-  
+  const newTask = document.createElement('div');
+  newTask.className = 'task-card';
+  newTask.setAttribute('contenteditable', 'true');
+  newTask.setAttribute('draggable', 'false');
+
+  const newName = document.createElement('h3');
+  newTask.appendChild(newName);
+  const newDescription = document.createElement('p');
+  newTask.appendChild(newDescription);
+
+  document.getElementById('to-do-cards').appendChild(newTask);
+  newTask.focus();
+  newTask.addEventListener("dragstart", dragstartHandler);
+  newTask.addEventListener("dragend", dragendHandler);
+  newTask.addEventListener("dblclick", dbclickHandler);
+  newTask.addEventListener('blur', async () => {
+    if (newTask.getAttribute('contenteditable') === 'true') {
+      const name = newTask.children[0].textContent;
+      if (name === '') {
+        newTask.remove();
+        return
+      }
+      const description = newTask.children[1].textContent;
+      const response = await fetch('/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: name, description: description })
+      });
+      const responseData = await response.json();
+      console.log(responseData);
+      if (response.ok) {
+        newTask.setAttribute('contenteditable', 'false');
+        newTask.id = `task-card-${responseData.id}`;
+        newTask.setAttribute('draggable', 'true');
+      }
+    }
+  });
 }

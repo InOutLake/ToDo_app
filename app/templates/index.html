@@ -9,17 +9,23 @@
 <body>
     <h1>Task List</h1>
     <div class="task-columns">
-        <div class="task-column" id="To Do">
-            <h2>To Do</h2>
+        <div class="task-column" id="To Do" style="background-color: #cce9ec;">
+            <div class="task-column-header">
+                <h2>To Do</h2>
+                <button class="create-task-button" id="create-task-button" onclick="createTask(event)">+</button>
+            </div>
             <div class="task-cards" id="to-do-cards" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
-            <button class="create-task-button" id="create-task-button" onClik="createTask()"></div>
         </div>
-        <div class="task-column" id="In Progress">
-            <h2>In Progress</h2>
+        <div class="task-column" id="In Progress" style="background-color: #e8eccc;">
+            <div class="task-column-header">
+                <h2>In Progress</h2>
+            </div>
             <div class="task-cards" id="in-progress-cards" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
         </div>
-        <div class="task-column" id="Completed">
-            <h2>Done</h2>
+        <div class="task-column" id="Completed" style="background-color: #ccecd1;">
+            <div class="task-column-header">
+                <h2>Done</h2>
+            </div>
             <div class="task-cards" id="done-cards" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
         </div>
     </div>
