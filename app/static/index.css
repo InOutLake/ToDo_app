@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    font-size: 1.3vw;
 }
 
 h1 {
@@ -21,13 +22,13 @@ h1 {
     border-radius: 10px;
     margin: 1cqw;
 }
-
 .task-column h2 {
     font-size: 2.5cqw;
     margin-top: 1%;
     font-family: Arial, sans-serif;
     color: #333;
     margin-bottom: 3cqh;
+    
 }
 
 .task-cards {
@@ -42,8 +43,8 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: move;
     margin-bottom: 2cqh;
+    transition: 0.3s ease-out;
 }
 
 .task-card h3 {
@@ -64,10 +65,47 @@ h1 {
 }
 
 .task-card:hover {
-    background-color: #f7f7f7;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-out;
+}
+
+.trash-dropbox {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30vw;
+    height: 15vh;
+    background-color: rgb(255, 168, 168);
+    border: 2px solid rgb(250, 150, 150);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    justify-content: flex-start;
+    
+    transition: 0.3s ease-out;
+}
+
+.trash-dropbox.show {
+    bottom: -5%;
+    transition: 0.3s ease-out;
+}
+
+.trash-dropbox p {
+    font-size: 1.5vw;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 1cqh;
 }
 
 @media (max-width: 768px) {
+    body {
+        font-size: 3vw;
+    }
+
     h1 {
         font-size: 5vw;
     }
@@ -78,5 +116,14 @@ h1 {
 
     .task-card h3 {
         font-size: 3vw;
+    }
+
+    .trash-dropbox p {
+        font-size: 4vw;
+        text-align: center;
+    }
+
+    .trash-dropbox {
+        width: 60vw;
     }
 }

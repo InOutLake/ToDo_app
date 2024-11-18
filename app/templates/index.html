@@ -9,38 +9,24 @@
 <body>
     <h1>Task List</h1>
     <div class="task-columns">
-        <div class="task-column" id="to-do-column">
+        <div class="task-column" id="To Do">
             <h2>To Do</h2>
-            <div class="task-cards" id="to-do-cards" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
-                <div class="task-card" draggable="true">
-                    <h3>Buy milk</h3>
-                    <p>On the way to copycenter</p>
-                </div>
-                <div class="task-card" draggable="true">
-                    <h3>Buy milk</h3>
-                    <p>On the way to copycenter</p>
-                </div>
-                <div class="task-card" draggable="true">
-                    <h3>Buy milk</h3>
-                    <p>On the way to copycenter</p>
-                </div>
-            </div>
+            <div class="task-cards" id="to-do-cards" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+            <button class="create-task-button" id="create-task-button" onClik="createTask()"></div>
         </div>
-        <div class="task-column" id="in-progress-column">
+        <div class="task-column" id="In Progress">
             <h2>In Progress</h2>
             <div class="task-cards" id="in-progress-cards" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
         </div>
-        <div class="task-column" id="done-column">
+        <div class="task-column" id="Completed">
             <h2>Done</h2>
             <div class="task-cards" id="done-cards" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
         </div>
     </div>
 
-    <form id="create-task-form">
-        <input type="text" id="task-name" placeholder="Task name">
-        <input type="text" id="task-description" placeholder="Task description">
-        <button id="create-task-btn">Create Task</button>
-    </form>
+    <div class="trash-dropbox" id="trash-dropbox" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+        <p>Drop here to delete task</p>
+    </div>
 
     <script src="static/index.js"></script>
 </body>
